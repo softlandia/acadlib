@@ -31,6 +31,3 @@ func RegPathAutocadLogFile() string
 func PathAutocadLogFile() string
 
 //PathAutocadLogFile - return path to folder where AutoCAD store log file
-
-USING SAMPLE:
-regAcadTest.go
