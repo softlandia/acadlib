@@ -8,7 +8,8 @@ functions:
 3. RegPathAutocadLogFile() string
 4. PathAutocadLogFile() string
 
-    func IsAutocadInstalled() bool
+_________________________________________________________________________
+	func IsAutocadInstalled() bool
 
 IsAutocadInstalled - checks installed in system any version of AutoCAD 
 return true if installed,  
