@@ -1,4 +1,4 @@
-golang library get AutoCAD parameters from registry
+#golang library get AutoCAD parameters from registry
 
 download: go get -u github.com/softlandia/acadlib
 
