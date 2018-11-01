@@ -7,10 +7,10 @@ functions:
 1. 
 func IsAutocadInstalled() bool
 
-//IsAutocadInstalled - checks installed in system any version of AutoCAD
-// return true if installed,
-// return false if not istalled
-// used const _RegPathAcad === `Software\Autodesk\AutoCAD`
+IsAutocadInstalled - checks installed in system any version of AutoCAD
+return true if installed,
+return false if not istalled
+used const _RegPathAcad === `Software\Autodesk\AutoCAD`
 
 2. 
 func ReleaseAutocadInstalled() string
