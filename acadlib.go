@@ -20,38 +20,27 @@ func IsAutocadInstalled() bool {
 }
 
 //ReleaseAutocadInstalled - return string with release of AutoCAD installer in system
-//return "-" if Autocad not installed
+//return "" if Autocad not installed
 func ReleaseAutocadInstalled() string {
 	key, err := registry.OpenKey(registry.CURRENT_USER, _RegPathAcad, registry.QUERY_VALUE)
-	if err != nil {
-		return "-"
-	}
 	defer key.Close()
+	if err != nil {
+		return ""
+	}
 
 	s, _, err := key.GetStringValue("CurVer")
 	if err != nil {
-		return "-"
+		return ""
 	}
 	return s
 }
 
 //RegPathAutocadLogFile - return string registry path to key store log file folder
+//on error return ""
 func RegPathAutocadLogFile() string {
 	if !IsAutocadInstalled() {
 		return ""
 	}
-
-	/*	path := _RegPathAcad
-		key, err := registry.OpenKey(registry.CURRENT_USER, path, registry.QUERY_VALUE)
-		defer key.Close()
-		if err != nil {
-			return ""
-		}
-
-		s, _, err := key.GetStringValue("CurVer")
-		if err != nil {
-			return ""
-		}*/
 
 	s := ReleaseAutocadInstalled()
 	if s == "" {
@@ -78,6 +67,7 @@ func RegPathAutocadLogFile() string {
 }
 
 //PathAutocadLogFile - return path to folder where AutoCAD store log file
+//return "" on error
 func PathAutocadLogFile() string {
 	s := RegPathAutocadLogFile()
 	if s == "" {
